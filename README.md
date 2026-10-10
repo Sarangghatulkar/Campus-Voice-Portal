@@ -8,7 +8,7 @@ Campus Voice is a full-stack web application designed to simplify college grieva
 ## 📸 Application Screenshots
 
 ### Login Page
-Login Page <img width="1600" height="819" alt="login_page" src="https://github.com/user-attachments/assets/a3eb43b0-1288-477c-8572-2432abae9588" />
+<img width="1600" height="819" alt="login_page" src="https://github.com/user-attachments/assets/a3eb43b0-1288-477c-8572-2432abae9588" />
 
 
 ### Student Dashboard
