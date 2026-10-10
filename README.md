@@ -1,102 +1,181 @@
-# 🎓 Campus Voice — Advanced Grievance & Complaint Management System
+# 🎓 Campus Voice Portal
 
-A production-grade MERN stack complaint management platform for colleges and universities, featuring multi-role dashboards, automated 5-tier SLA escalation, real-time notifications, AI-powered triaging, feedback portal, and academic review workflows.
 
----
+### Advanced Grievance & Complaint Management System
+Campus Voice is a full-stack web application designed to simplify college grievance management. It enables students to submit complaints, track their status, provide feedback, and access academic review workflows. Faculty members and administrators can manage complaints through role-based dashboards and a structured escalation system.
 
-## 🚀 Features
 
-### Core Capabilities
-- 🔐 **JWT Authentication & RBAC**: Access & Refresh token rotation with strict role gating.
-- 👥 **6 Dedicated Roles**: Student, Teacher, Tutor Guardian (TG), Class Incharge, HOD, Admin.
-- ⚡ **4-Tier SLA Escalation Engine**: Automated background cron job escalating overdue tickets across levels.
-- 🔔 **Real-Time Notification System**: Socket.IO powered alerts on ticket changes and decisions.
-- 🤖 **AI Complaint Triaging & Duplicate Detection**: Instant sentiment classification and duplicate checks.
-- 📊 **Executive Analytics**: Recharts-powered trend graphs, SLA compliance velocity, and category distributions.
-- 🎭 **Anonymous Feedback Hub**: Star ratings and feedback with privacy masking.
-- 🎓 **Academic Review & Re-evaluation**: Re-marking requests with scanned copy uploads.
-- 📝 **Immutable Audit Trail**: Security-critical user action recording.
+## 📸 Application Screenshots
 
-### 4-Tier Escalation Chain
-```
-Level 0: Teacher (24h) ➔ Level 1: TG (24h) ➔ Level 2: Class Incharge (24h) ➔ Level 3: HOD (Final)
-```
+### Login Page
+Login Page <img width="1600" height="819" alt="login_page" src="https://github.com/user-attachments/assets/a3eb43b0-1288-477c-8572-2432abae9588" />
 
----
+
+### Student Dashboard
+<img width="1600" height="811" alt="feedback section" src="https://github.com/user-attachments/assets/b7fb9473-7f3e-4b53-863d-55f58d1077b8" />
+
+<img width="1600" height="810" alt="feedback assign section" src="https://github.com/user-attachments/assets/ceb9a6b8-31e0-4911-befc-83c48efaef08" />
+
+
+
+### Admin Dashboard
+<img width="1600" height="817" alt="admin dashboard" src="https://github.com/user-attachments/assets/dcf12c0f-b7fc-46fb-9374-03ff1eef1b44" />
+
+
+## 🎯 Problem Statement
+
+Traditional college complaint systems can make it difficult for students to submit grievances, track progress, and know whether their issues have been resolved.
+
+Campus Voice provides a centralized digital platform for complaint submission, tracking, escalation, and administrative management.
+
+## ✨ Key Features
+
+- **Role-Based Access Control:** Separate access for students, teachers, TGs, class in-charges, HODs, and administrators.
+- **Complaint Management:** Submit complaints and track their status.
+- **Automated Escalation:** Four-tier complaint escalation workflow with SLA-based handling.
+- **Real-Time Notifications:** Socket.IO-based notifications for supported application events.
+- **AI-Based Complaint Assistance:** Complaint triaging and duplicate detection.
+- **Analytics Dashboard:** Visual insights and complaint statistics using Recharts.
+- **Anonymous Feedback:** Feedback submission functionality.
+- **Academic Review Workflow:** Academic re-evaluation requests and scanned-copy uploads.
+- **Audit Trail:** Records of complaint-related activities for improved traceability.
 
 ## 🛠️ Tech Stack
 
-| Layer | Technology |
+| Layer | Technologies |
 |---|---|
-| **Frontend** | React 18, Vite, Tailwind CSS, Lucide Icons, Recharts, React Hook Form |
-| **Backend** | Node.js, Express.js, Mongoose 9, Socket.IO, Multer, Node-Cron, Bcrypt |
-| **Database** | MongoDB Atlas / Local MongoDB |
+| Frontend | React 18, Vite |
+| Styling | Tailwind CSS |
+| Backend | Node.js, Express.js |
+| Database | MongoDB, Mongoose |
+| Authentication | JWT, bcrypt |
+| Real-Time Communication | Socket.IO |
+| File Uploads | Multer |
+| Scheduled Tasks | Node-Cron |
+| Data Visualization | Recharts |
+| Forms | React Hook Form |
+| Icons | Lucide Icons |
 
----
+## 🏗️ Application Architecture
 
-## 📦 Project Structure
-
+```text
+Campus Voice Portal
+        |
+        v
+ React Frontend (Vite)
+        |
+        v
+ Express.js REST API
+        |
+        +------> JWT Authentication
+        |
+        +------> Complaint Management
+        |
+        +------> Escalation & Notifications
+        |
+        +------> AI Complaint Processing
+        |
+        v
+ MongoDB Database
 ```
-Campus Voice/
-├── frontend/              # React 18 + Vite + Tailwind UI
-│   └── src/
-│       ├── components/    # Reusable UI & Layout (DashboardLayout, Sidebar, Navbar)
-│       ├── pages/         # 6 Role Dashboards (student, teacher, tg, class_incharge, hod, admin)
-│       ├── context/       # AuthContext & NotificationContext
-│       └── services/      # Axios API services
-│
-├── backend/               # Node.js + Express API
-│   └── src/
-│       ├── models/        # Mongoose schemas (Complaint, User, Feedback, AcademicReview, etc.)
-│       ├── controllers/   # Business logic per domain
-│       ├── routes/        # Role-protected API routes
-│       ├── services/      # AI, Notification, Escalation services
-│       └── jobs/          # Node-cron background escalation worker
-│
-└── README.md
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+Install the following before running the project:
+
+- Node.js and npm
+- MongoDB Atlas account or a local MongoDB installation
+- Git
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/Sarangghatulkar/Campus-Voice-Portal.git
+cd Campus-Voice-Portal
 ```
 
----
+### 2. Configure the Backend
 
-## ⚙️ Quick Start (Local Setup)
-
-### 1. Backend Setup
 ```bash
 cd backend
 npm install
-npm run dev
-# Running on http://localhost:5000
 ```
 
-### 2. Frontend Setup
+Configure the required environment variables using the project's `.env.example` file. Add your own database connection string, authentication secrets, and any other configuration required by the backend.
+
+Do not upload your actual `.env` file or API keys to GitHub.
+
+Start the backend using the development command configured in `backend/package.json`. If its script is `dev`, run:
+
+```bash
+npm run dev
+```
+
+### 3. Configure the Frontend
+
+Open another terminal:
+
 ```bash
 cd frontend
 npm install
 npm run dev
-# Running on http://localhost:5173
 ```
 
-### 3. Seed Demo Data (Optional)
-```bash
-cd backend
-npm run seed
+Open the local URL printed by Vite in your terminal.
+
+> **Note:** The backend environment variables and frontend API URL must match your project's actual configuration. Refer to `.env.example` and the project source code for the required settings.
+
+## 📁 Project Structure
+
+```text
+Campus-Voice-Portal/
+├── backend/
+├── frontend/
+├── .env.example
+├── .gitignore
+├── package.json
+├── README.md
+├── vite.config.ts
+└── screenshots/
+    ├── login.png
+    ├── student-dashboard.png
+    └── admin-dashboard.png
 ```
 
----
+The `screenshots/` folder is where you should add your real application screenshots.
 
-## 🌱 Demo Accounts
-Default password for all accounts: `Password@123`
+## 🔐 Security
 
-| Role | Name | Email | Access |
-|---|---|---|---|
-| **Student** | Aarav Patel | `student@demo.com` | File grievances, academic reviews, anonymous feedback |
-| **Teacher** | Prof. Rajesh Kulkarni | `teacher@demo.com` | Subject ticket resolution within 24h SLA |
-| **Tutor Guardian** | Prof. Vikram Mehta | `tg@demo.com` | Level-1 cohort escalation review |
-| **Class Incharge** | Prof. Sneha Deshmukh | `classincharge@demo.com` | Level-2 class cohort management |
-| **HOD** | Dr. Anand Joshi | `hod@demo.com` | Level-3 departmental moderation & analytics |
-| **Admin** | Rajesh Sharma | `admin@demo.com` | User management, departments, audit logs, system settings |
+- Role-based access control for different user types.
+- JWT-based authentication.
+- Password hashing using bcrypt.
+- Environment variables for sensitive configuration.
+- File upload handling through Multer.
 
----
+Security features should be verified against the actual application configuration before deploying to production.
+
+## 🔮 Future Improvements
+
+- Improve mobile responsiveness and accessibility.
+- Expand complaint analytics and reporting.
+- Add more automated notifications and status updates.
+- Enhance AI-based complaint classification.
+- Improve deployment, monitoring, and automated testing.
+
+## 👨‍💻 Project Information
+
+**Project Name:** Campus Voice Portal  
+**Category:** Full-Stack Web Development  
+**Domain:** Education Technology
+
+**Repository:** [Campus Voice Portal on GitHub](https://github.com/Sarangghatulkar/Campus-Voice-Portal)
 
 ## 📄 License
-MIT © Campus Voice
+
+Add a suitable open-source license if you intend to distribute this project under specific reuse permissions. Without a license, standard copyright restrictions generally apply.
+
+---
+
+*Built to make campus grievance management more transparent, organized, and accessible.*
